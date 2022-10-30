@@ -1,0 +1,19 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<h1>Welcome Page</h1>
+<button id="student">For Students</button>
+<button id="teachers">For Teachers</button>
+
+  
+<script>
+ var btn = document.getElementById('student');
+btn.onclick = function() {
+location.assign('/getQuestions');
+}
+
+var btn2 = document.getElementById('teachers');
+btn2.onclick = function() {
+location.assign('/forTeachers');
+}
+
+</script>

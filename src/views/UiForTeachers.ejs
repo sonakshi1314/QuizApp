@@ -1,0 +1,45 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<h1> WELCOME BACK!! </h1>
+
+<% for( let index = 0; index < data.length; index++ ) { %>
+     QNo.<%= data[index].QNo %> 
+      <%= data[index].Question %> <br>
+      <% for( let i = 0; i < 4; i++ ) { %>
+        <input type="radio" name=<%= index+1 %> value= <%= i %> > 
+        <%= data[index].Options[i] %> <br>
+  <% } %>
+  <br>
+  <button id="addQuestion"  onclick="myFunction()"> Add a Question</button>
+  <button id="update"  onclick="window.location.href='/UpdateQuestion/<%= data[index]._id %>'" >Update a Question</button>
+  <button id="delete"  data-qid ='<%= data[index]._id %>' >Delete a Question</button>
+  <br> <br>
+<% } %>
+
+
+<script>
+$(document).ready(()=>{
+  $("#delete").on('click', function(e) {
+    
+    let questionId=$(this).data('qid')
+    alert(questionId);
+    e.preventDefault();
+    $.ajax({
+         type: "delete",
+         url: '/deleteQuestion/'+ questionId ,
+         
+         success: function(data){
+             console.log(data);
+             alert('Data Updated Sucessfully')
+         }
+    });
+  })
+  
+   const  deleteQuestion = (id)=>{
+    
+   }
+})
+function myFunction() {
+  location.replace("/addQuestion")
+}
+
+   </script>

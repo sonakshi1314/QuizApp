@@ -1,0 +1,17 @@
+<h1> WELCOME TO THE ONLINE QUIZ </h1>
+<form action="/validate-Questions" method="post">
+<% for( let index = 0; index < data.length; index++ ) { %>
+     QNo.<%= data[index].QNo %> 
+      <%= data[index].Question %> <br>
+      <% for( let i = 0; i < 4; i++ ) { %>
+        <input type="radio" name=<%= index+1 %> value= <%= i %> > 
+        <%= data[index].Options[i] %> <br>
+  <% } %>
+  <br>
+<% } %>
+<button >Submit</button>
+</form>
+
+<!-- <button>Reset</button> -->
+
+<!-- using ajax -->
